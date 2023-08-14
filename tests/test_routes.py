@@ -148,7 +148,7 @@ class TestAccountService(TestCase):
         resp = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
 
-    ######################################################################  
+    ######################################################################
     # LIST ALL ACCOUNTS
     ######################################################################
 
@@ -160,7 +160,7 @@ class TestAccountService(TestCase):
         data = resp.get_json()
         self.assertEqual(len(data), 5)
 
-    ######################################################################  
+    ######################################################################
     # UPDATE AN ACCOUNT
     ######################################################################
 
@@ -179,7 +179,7 @@ class TestAccountService(TestCase):
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
 
-    ######################################################################  
+    ######################################################################
     # DELETE AN ACCOUNT
     ######################################################################
     def test_delete_account(self):
@@ -192,7 +192,6 @@ class TestAccountService(TestCase):
         """It should not allow an illegal method call"""
         resp = self.client.delete(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
-
 
     def test_security_headers(self):
         """It should return security headers"""
